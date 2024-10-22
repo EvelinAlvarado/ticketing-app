@@ -1,7 +1,14 @@
-import React from "react";
-
-const Dashboard = () => {
-  return <div>Dashboard</div>;
+const Home = () => {
+  return (
+    <div className="">
+      <nav>
+        <ul>
+          <li>Dashboard</li>
+          <li></li>
+        </ul>
+      </nav>
+    </div>
+  );
 };
 
-export default Dashboard;
+export default Home;
