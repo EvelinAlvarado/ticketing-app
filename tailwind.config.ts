@@ -15,7 +15,7 @@ const config: Config = {
         page: "#D9CCC8",
         card: "#F0E7E4",
         "card-hover": "",
-        "default-text-dark": "##777777",
+        "default-text-dark": "#777777",
         "text-dark-hover-selected": "#3FA6A6",
         "default-text-light": "#ECE4E3",
         "text-light-hover": "#ffffff",
@@ -28,6 +28,13 @@ const config: Config = {
         "no-started": "#f44336",
         started: "	#c19737",
         done: "#43a86f",
+      },
+      screens: {
+        "3xl": "1680px",
+        "4xl": "2200px",
+      },
+      maxWidth: {
+        "10xl": "1512px",
       },
     },
   },

@@ -1,12 +1,10 @@
+import Footer from "../components/Footer";
+
 const Home = () => {
   return (
-    <div className="">
-      <nav>
-        <ul>
-          <li>Dashboard</li>
-          <li></li>
-        </ul>
-      </nav>
+    <div>
+      <h1>bienvenida blllla</h1>
+      <Footer />
     </div>
   );
 };

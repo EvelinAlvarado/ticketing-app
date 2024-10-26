@@ -1,10 +1,10 @@
 /* import type { Metadata } from "next";
 import localFont from "next/font/local"; */
 import "./globals.css";
-import NavBar from "./components/NavBar";
+
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import Header from "./components/Header";
+
 config.autoAddCss = false;
 
 /* const geistSans = localFont({
@@ -30,13 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-page flex flex-row">
-        <NavBar />
-        <div>
-          <Header />
-
-          {children}
-        </div>
+      <body className="bg-page">
+        <h1>aqui va la portada</h1>
+        <div>botones sign up & login</div>
+        <main>{children}</main>
       </body>
     </html>
   );
