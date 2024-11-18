@@ -1,15 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Login from "./login/page";
 import SignUp from "./signup/page";
-import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 const AuthLayout = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const pathname = usePathname();
+  const router = useRouter();
+  const [isLogin, setIsLogin] = useState(pathname === "/auth/login");
 
-  const handleToggle = () => setIsLogin((prev) => !prev);
+  useEffect(() => {
+    setIsLogin(pathname === "/auth/login");
+  }, [pathname]);
+
+  const handleToggle = () => {
+    // Cambia la ruta en función del estado actual
+    router.push(isLogin ? "/auth/signup" : "/auth/login");
+  };
 
   return (
     <div className="flexCenter min-h-screen bg-secondary-shades">
@@ -21,31 +30,27 @@ const AuthLayout = () => {
       >
         <AnimatePresence mode="wait">
           {isLogin ? (
-            <Link href="/auth/signup">
-              <motion.div
-                key="login"
-                initial={{ x: "-100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: 0 }}
-                transition={{ type: "spring", stiffness: 90, damping: 20 }}
-                className="flex w-full min-h-[570px]"
-              >
-                <Login onToggle={handleToggle} />
-              </motion.div>
-            </Link>
+            <motion.div
+              key="login"
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: 0 }}
+              transition={{ type: "spring", stiffness: 90, damping: 20 }}
+              className="flex w-full min-h-[570px]"
+            >
+              <Login onToggle={handleToggle} />
+            </motion.div>
           ) : (
-            <Link href="/auth/login">
-              <motion.div
-                key="signup"
-                initial={{ x: "100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: 0 }}
-                transition={{ type: "spring", stiffness: 90, damping: 20 }}
-                className="flex w-full min-h-[570px]"
-              >
-                <SignUp onToggle={handleToggle} />
-              </motion.div>
-            </Link>
+            <motion.div
+              key="signup"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: 0 }}
+              transition={{ type: "spring", stiffness: 90, damping: 20 }}
+              className="flex w-full min-h-[570px]"
+            >
+              <SignUp onToggle={handleToggle} />
+            </motion.div>
           )}
         </AnimatePresence>
       </motion.div>

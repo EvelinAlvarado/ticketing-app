@@ -62,7 +62,7 @@ const Login = ({ onToggle }: { onToggle: () => void }) => {
         </div>
       </div>
       <AuthSideContent
-        title="Hello, Friend!"
+        title="Hello!"
         description="Join our platform and simplify your ticketing process."
         buttonText="Go to Sign up"
         onClick={onToggle}
