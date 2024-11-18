@@ -20,7 +20,7 @@ const Header = () => {
   };
   return (
     <header className="header-grid max-w-[1440px] padding-container relative">
-      <div className="flexBetween py-4 border-b-2 border-default-text-dark text-default-text-dark">
+      <div className="flexBetween py-4 border-b-2 border-primary-shades primary-shades">
         <h1 className="font-semibold text-sm">Dashboard</h1>
         {displayMenu === false ? (
           <FontAwesomeIcon

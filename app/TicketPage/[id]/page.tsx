@@ -7,7 +7,7 @@ interface TicketPageProps {
 }
 
 const TicketPage = ({ params }: TicketPageProps): React.ReactElement => {
-  return <div className="bg-page">TicketPage {params.id}</div>;
+  return <div className="bg-secondary-shades">TicketPage {params.id}</div>;
 };
 
 export default TicketPage;

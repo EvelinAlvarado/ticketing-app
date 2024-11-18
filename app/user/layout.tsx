@@ -14,7 +14,7 @@ export default function UserLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-page">
+      <body className="bg-secondary-shades">
         <div className="flex flex-row">
           <div className="navBar">
             <NavBar />
