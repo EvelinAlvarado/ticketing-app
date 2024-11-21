@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { signIn } from "next-auth/react"; //, useSession, getProviders
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -12,8 +13,19 @@ import {
 } from "@/components/ui/card";
 import { FcGoogle } from "react-icons/fc";
 import AuthSideContent from "@/components/AuthSideContent ";
+// import { useEffect, useState } from "react";
 
 const Login = ({ onToggle }: { onToggle: () => void }) => {
+  // const {data:session}=useSession(); //here or in routes protecteds?
+  // const [providers, setProviders] = useState(null);
+  // useEffect(()=>{
+  //   const setUpProviders = async()=>{
+  //     const response = await getProviders()
+  //     setProviders(response)
+  //   }
+  //   setUpProviders()
+  // },[])
+
   return (
     <div className="flex w-full">
       <div className="w-full sm:w-3/5 p-2 md:p-5 my-auto">
@@ -55,7 +67,13 @@ const Login = ({ onToggle }: { onToggle: () => void }) => {
               </span>
               <hr className="flex-grow border-primary-shades dark:border-primary-shades" />
             </div>
-            <Button variant="outline-dark" type="submit">
+            <Button
+              onClick={() =>
+                signIn("google", { callbackUrl: "http://localhost:3000/user" })
+              }
+              variant="outline-dark"
+              type="submit"
+            >
               <FcGoogle /> Log in with Google
             </Button>
           </CardFooter>
@@ -72,3 +90,7 @@ const Login = ({ onToggle }: { onToggle: () => void }) => {
 };
 
 export default Login;
+
+// *https://nextjs.org/docs/app/building-your-application/authentication#sign-up-and-login-functionality validation using zod
+
+// *https://authjs.dev/getting-started/session-management/protecting?framework=express#pages protecting routes

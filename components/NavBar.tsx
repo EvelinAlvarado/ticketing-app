@@ -4,6 +4,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+// import { signOut } from "next-auth/react";
 
 interface NavBarProps {
   handleCloseMenu?: () => void;
@@ -13,7 +14,7 @@ const NavBar = ({ handleCloseMenu }: NavBarProps) => {
   const pathname = usePathname();
   //console.log(pathname);
   return (
-    <nav className="bg-primary-shades w-[260px] px-5 min-h-screen flex flex-col relative z-20">
+    <nav className="bg-primary-shades text-secondary-shades w-[260px] px-5 min-h-screen flex flex-col relative z-20">
       <div className="lg:hidden text-right px-6">
         <FontAwesomeIcon
           icon={faXmark}
@@ -43,6 +44,15 @@ const NavBar = ({ handleCloseMenu }: NavBarProps) => {
             {pathname === item.href && <div className="absolute pointer"></div>}
           </li>
         ))}
+        <li className="w-full relative">
+          <button
+            // onClick={signOut}
+            type="button"
+            className="block w-full text-xs text-center font-semibold uppercase cursor-pointer hover:text-light-hover"
+          >
+            Sign out
+          </button>
+        </li>
       </ul>
     </nav>
   );

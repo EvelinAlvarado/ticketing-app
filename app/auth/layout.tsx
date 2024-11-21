@@ -16,14 +16,13 @@ const AuthLayout = () => {
   }, [pathname]);
 
   const handleToggle = () => {
-    // Cambia la ruta en función del estado actual
     router.push(isLogin ? "/auth/signup" : "/auth/login");
   };
 
   return (
     <div className="flexCenter min-h-screen bg-secondary-shades">
       <motion.div
-        className="flex w-11/12 md:w-2/3 max-w-2xl overflow-hidden rounded-md border bg-card text-card-foreground shadow-md"
+        className="flex cardStyle w-11/12 md:w-2/3 max-w-2xl "
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}

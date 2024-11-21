@@ -43,6 +43,10 @@
     @apply flex items-center justify-start;
   }
 
+  .cardStyle {
+    @apply rounded-md bg-secondary-shades-2 shadow-md;
+  }
+
   .flexEnd {
     @apply flex items-center justify-end;
   }
